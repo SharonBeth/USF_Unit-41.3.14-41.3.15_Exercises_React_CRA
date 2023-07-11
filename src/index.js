@@ -1,17 +1,22 @@
+
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// This is written this way because it is a default import set up
+import fruit from './foods';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//This is written this way because it is no a default from helpers file, so each function or const needs to be identified.
+import { choice, remove } from './helpers';
+
+let fruit = choice(fruits);
+
+console.log(`I would like one ${fruit}, please`);
+console.log(`I would like one ${fruit}, please`);
+console.log(`I would like one ${fruit}, please`);
+
+let fruitsLeft = remove(fruit, fruits);
+
+console.log(`I'm sorry, we are all out of that fruit. We do have ${fruitsLeft.length} left.`);
+
+ReactDOM.render(<Order />, document.getElementById('root'));
+export default Order;
